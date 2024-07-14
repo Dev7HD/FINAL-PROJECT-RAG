@@ -18,9 +18,6 @@ public class RagDataLoader {
     @Value("classpath:/pdfs/cv.pdf")
     private Resource pdfResource;
 
-/*    @Value("store-data-v2.json")
-    private String storeFile;*/
-
     private final JdbcClient jdbcClient;
     private final VectorStore vectorStore;
 
@@ -41,20 +38,3 @@ public class RagDataLoader {
         }
     }
 }
-//@Bean
-    /*public SimpleVectorStore simpleVectorStore(EmbeddingModel embeddingModel) {
-        SimpleVectorStore vectorStore = new SimpleVectorStore(embeddingModel);
-        String storePath = Path.of("src","main","resources","store").toAbsolutePath() + "/" + storeFile;
-        File file = new File(storePath);
-        if (!file.exists()) {
-            PagePdfDocumentReader reader = new PagePdfDocumentReader(pdfResource);
-            List<Document> documents = reader.get();
-            TextSplitter textSplitter = new TokenTextSplitter();
-            List<Document> chunks = textSplitter.split(documents);
-            vectorStore.accept(chunks);
-            vectorStore.save(file);
-        } else {
-            vectorStore.load(file);
-        }
-        return vectorStore;
-    }*/
