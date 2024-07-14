@@ -2,13 +2,10 @@ package ma.dev7hd.finalexamrag.services;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.ai.document.Document;
-import org.springframework.ai.vectorstore.SimpleVectorStore;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -20,7 +17,6 @@ import java.util.Map;
 @BrowserCallable
 @AnonymousAllowed
 public class ChatBotAiService {
-    private static final Logger log = LoggerFactory.getLogger(ChatBotAiService.class);
     private final ChatClient chatClient;
     private final VectorStore vectorStore;
     @Value("classpath:/prompts/prompt-template.st")
@@ -42,5 +38,4 @@ public class ChatBotAiService {
                 .call()
                 .content();
     }
-
 }
