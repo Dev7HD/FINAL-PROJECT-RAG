@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.*;
-
 @RestController
 @RequestMapping(value = "/chatbot", produces = MediaType.TEXT_PLAIN_VALUE)
 @AllArgsConstructor

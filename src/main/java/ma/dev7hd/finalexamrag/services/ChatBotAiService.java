@@ -32,7 +32,6 @@ public class ChatBotAiService {
         List<String> context = similarities.stream().map(Document::getContent).toList();
         PromptTemplate promptTemplate1 = new PromptTemplate(promptTemplate);
         Prompt prompt = promptTemplate1.create(Map.of("context", context, "question", question));
-        System.out.println(prompt);
         return chatClient
                 .prompt(prompt)
                 .call()
